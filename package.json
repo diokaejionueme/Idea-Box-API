@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "echo 'No build step required for serverless functions'",
-    "start": "vercel dev" // Command to emulate Vercel functions locally
+    "build": "cd client && npm install && npm run build",
+    "start": "vercel dev"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +15,6 @@
     "express": "^4.17.1"
   },
   "engines": {
-    "node": ">=12.0.0" // Vercel requires a minimum Node.js version
+    "node": ">=12.0.0"
   }
 }
-
