@@ -15,5 +15,9 @@
   },
   "engines": {
     "node": ">=12.0.0"
+  },
+  "vercel": {
+    "functions": "api" // Specify the folder containing serverless functions
   }
 }
+
