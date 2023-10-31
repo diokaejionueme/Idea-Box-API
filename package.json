@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js" // If there's a main file for the serverless functions
+    "start": "node index.js" 
   },
   "engines": {
     "node": ">=12.0.0"
@@ -12,9 +12,6 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1"
-    // Add any other dependencies your serverless functions might need
-  },
-  "devDependencies": {
-    // Any development dependencies needed for your project
+    
   }
 }
