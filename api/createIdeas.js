@@ -1,4 +1,4 @@
-const cors = require('cors')({
+const cors = require('micro-cors')({
     origin: true,
     methods: ['POST'], // Define the allowed methods
   });

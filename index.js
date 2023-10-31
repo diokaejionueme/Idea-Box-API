@@ -1,26 +1,20 @@
-const express = require('express');
-const cors = require('cors');
-const app = express();
-
-app.use(express.json());
-
-// Enable CORS for all routes
-app.use(cors());
-
-// Import your serverless functions
+const { json } = require('micro');
+const { send } = require('micro');
+const { router, get, post, del } = require('microrouter');
 const createIdea = require('./api/createIdeas');
 const getIdeas = require('./api/getIdeas');
 const getIdeaById = require('./api/getIdeasById');
 const deleteIdea = require('./api/deleteIdea');
+const cors = require('micro-cors')();
 
-// Define routes for your serverless functions
-app.use('/api/v1/ideas', createIdea);
-app.use('/api/v1/ideas', getIdeas);
-app.use('/api/v1/ideas', getIdeaById);
-app.use('/api/v1/ideas', deleteIdea);
+const notFound = (req, res) => {
+  send(res, 404, 'Not found route');
+};
 
-// Start your server
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+module.exports = cors(router(
+  post('/api/v1/ideas', createIdea),
+  get('/api/v1/ideas', getIdeas),
+  get('/api/v1/ideas/:id', getIdeaById),
+  del('/api/v1/ideas/:id', deleteIdea),
+  get('/*', notFound) // To handle other routes
+));
