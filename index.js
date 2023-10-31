@@ -1,10 +1,10 @@
-// index.js (your main file)
-
 const express = require('express');
 const cors = require('cors');
 const app = express();
 
 app.use(express.json());
+
+// Enable CORS for all routes
 app.use(cors());
 
 // Import your serverless functions
